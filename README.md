@@ -3,30 +3,30 @@ Repository ini berisi dokumentasi dan artefak pengujian untuk alur Forgot Passwo
 
 ✔ Scope of Testing 
 Pengujian difokuskan pada:
-• Alur end-to-end lupa password dari sudut pandang pengguna (UI & flow)
-• Validasi input dan pesan error yang ditampilkan
-• Konsistensi status akun setelah password berhasil diubah
+- Alur end-to-end lupa password dari sudut pandang pengguna (UI & flow)
+- Validasi input dan pesan error yang ditampilkan
+- Konsistensi status akun setelah password berhasil diubah
 
 Pengujian tidak mencakup:
-• Implementasi enkripsi password di backend
-• Konfigurasi SMTP / email deliverability tingkat server
-• Rate limiting dan brute force protection tingkat infrastruktur
+- Implementasi enkripsi password di backend
+- Konfigurasi SMTP / email deliverability tingkat server
+- Rate limiting dan brute force protection tingkat infrastruktur
 
 ✔ Business Risks
 Kegagalan pada fitur Forgot Password berpotensi menyebabkan:
-• User tidak dapat mengakses akun yang mengakibatkan churn & kehilangan kepercayaan
-• Lonjakan tiket customer support
-• Kebocoran informasi akun (email enumeration)
-• Risiko account takeover jika link reset tidak aman
+- User tidak dapat mengakses akun yang mengakibatkan churn & kehilangan kepercayaan
+- Lonjakan tiket customer support
+- Kebocoran informasi akun (email enumeration)
+- Risiko account takeover jika link reset tidak aman
 Oleh karena itu, skenario ini dikategorikan sebagai high-risk, high-impact flow.
 
 ✔ Assumptions & Constraints
 Asumsi pengujian:
-• User sudah memiliki akun terdaftar
-• Email user dapat menerima pesan masuk
-• Sistem dalam kondisi normal (tidak maintenance)
-• Pengujian dilakukan pada browser modern (Chrome/Firefox)
+- User sudah memiliki akun terdaftar
+- Email user dapat menerima pesan masuk
+- Sistem dalam kondisi normal (tidak maintenance)
+- Pengujian dilakukan pada browser modern (Chrome/Firefox)
 
 Keterbatasan:
-• Tidak ada akses ke database atau log backend
-• Pengujian dilakukan sebagai black-box testing
+- Tidak ada akses ke database atau log backend
+- Pengujian dilakukan sebagai black-box testing
