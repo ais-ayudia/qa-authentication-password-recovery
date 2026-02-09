@@ -4,7 +4,7 @@ Semua test case di bawah ini merupakan turunan dari:
 TS-01 – User dapat memulihkan akses akun melalui fitur Forgot Password secara aman dan dapat digunakan
 
 | TC ID | Scenario Ref | Description | Expected Result |
-
+|------|--------------|-------------|-----------------|
 | TC-01 | TS-01 | Reset password menggunakan email terdaftar | User berhasil login dengan password baru, password lama tidak valid |
 | TC-02 | TS-01 | Forgot password dengan email tidak terdaftar | Sistem menampilkan pesan umum tanpa mengonfirmasi keberadaan akun |
 | TC-03 | TS-01 | Submit form dengan email kosong atau format tidak valid | Validasi muncul, request tidak diproses |
