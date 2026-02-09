@@ -27,6 +27,6 @@ Asumsi pengujian:
 - Sistem dalam kondisi normal (tidak maintenance)
 - Pengujian dilakukan pada browser modern (Chrome/Firefox)
 
-Keterbatasan:
+Batasan Masalah:
 - Tidak ada akses ke database atau log backend
 - Pengujian dilakukan sebagai black-box testing
