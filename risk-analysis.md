@@ -1,10 +1,10 @@
-## Risk Analysis – Password Recovery
+# Risk Analysis – Password Recovery
 
 Fitur Password Recovery merupakan salah satu alur dengan **risiko tertinggi** dalam sistem autentikasi karena menyentuh akses akun tanpa kredensial utama. Kegagalan pada alur ini berdampak langsung pada keamanan akun, kepercayaan user, dan beban operasional.
 
 ## Risiko Utama yang Diidentifikasi
 
-# 1. Account Enumeration
+### 1. Account Enumeration
 Jika sistem membedakan respons antara email terdaftar dan tidak terdaftar, penyerang dapat mengidentifikasi akun yang valid.
 
 Dampak :
@@ -17,7 +17,7 @@ Mitigasi yang diverifikasi melalui TC-02 :
 
 Sistem wajib menampilkan pesan generik tanpa mengonfirmasi keberadaan akun
 
-# 2. Token Reset yang Tidak Aman atau Tidak Kedaluwarsa
+### 2. Token Reset yang Tidak Aman atau Tidak Kedaluwarsa
 Link reset password yang dapat digunakan ulang atau tidak memiliki masa berlaku membuka peluang account takeover.
 
 Dampak :
@@ -31,7 +31,7 @@ Mitigasi yang diverifikasi melalui TC-04 :
 - Token reset harus memiliki expiry dan ditolak setelah kedaluwarsa
 - User diarahkan untuk melakukan request ulang secara eksplisit
 
-# 3. Password Policy Lemah atau Tidak Ditegakkan
+### 3. Password Policy Lemah atau Tidak Ditegakkan
 Jika sistem menerima password yang lemah atau mengizinkan reuse password lama, maka reset password tidak meningkatkan keamanan akun.
 
 Dampak :
@@ -45,7 +45,7 @@ Mitigasi yang diverifikasi melalui TC-05 dan TC-06 :
 - Sistem menolak password yang tidak memenuhi policy
 - Sistem menolak penggunaan ulang password sebelumnya
 
-# 4. User Confusion pada Kondisi Gagal
+### 4. User Confusion pada Kondisi Gagal
 Alur forgot password sering dilakukan dalam kondisi user frustrasi. Pesan error yang tidak jelas atau ambigu meningkatkan churn dan tiket ke customer support.
 
 Dampak :
