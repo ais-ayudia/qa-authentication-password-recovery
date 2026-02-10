@@ -1,4 +1,4 @@
-**Risk Analysis – Password Recovery**
+## Risk Analysis – Password Recovery
 
 Fitur Password Recovery merupakan salah satu alur dengan **risiko tertinggi** dalam sistem autentikasi karena menyentuh akses akun tanpa kredensial utama. Kegagalan pada alur ini berdampak langsung pada keamanan akun, kepercayaan user, dan beban operasional.
 
