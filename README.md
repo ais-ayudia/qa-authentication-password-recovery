@@ -32,7 +32,7 @@ Batasan Masalah:
 - Pengujian dilakukan sebagai black-box testing
 
 ✔ Test Environment
-Browser: Firefox 147.0.3
-OS: Windows 10
-Testing type: Black-box
-Backend: Simulated (dummy system)
+- Browser: Firefox 147.0.3
+- OS: Windows 10
+- Testing type: Black-box
+- Backend: Simulated (dummy system)
