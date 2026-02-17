@@ -4,61 +4,77 @@ Fitur Password Recovery merupakan salah satu alur dengan **risiko tertinggi** da
 
 ## Risiko Utama yang Diidentifikasi
 
-### 1. Account Enumeration
-Jika sistem membedakan respons antara email terdaftar dan tidak terdaftar, penyerang dapat mengidentifikasi akun yang valid.
+### 1. Account Enumeration & Information Disclosure Risk
 
 Dampak :
+- Enumerasi akun valid
+- Peningkatan risiko phishing dan brute-force
+- Information leakage tentang arsitektur sistem
+- Penurunan kepercayaan user terhadap keamanan platform
 
-- Penyerang dapat mengumpulkan daftar akun aktif
-- Meningkatkan risiko phishing dan brute-force
-- Menurunkan kepercayaan user terhadap keamanan platform
+Mitigasi yang diverifikasi melalui TC-01, TC-02, TC-03, TC-11 :
+- Pesan selalu generik
+- Tidak mengonfirmasi keberadaan akun
+- Tidak mengekspos detail teknis
+- Logging detail hanya di server
 
-Mitigasi yang diverifikasi melalui TC-02 :
-
-Sistem wajib menampilkan pesan generik tanpa mengonfirmasi keberadaan akun
-
-### 2. Token Reset yang Tidak Aman atau Tidak Kedaluwarsa
-Link reset password yang dapat digunakan ulang atau tidak memiliki masa berlaku membuka peluang account takeover.
-
-Dampak :
-
-- Akses ilegal ke akun user
-- Potensi penyalahgunaan data pribadi
-- Insiden keamanan yang memerlukan investigasi dan komunikasi publik
-
-Mitigasi yang diverifikasi melalui TC-04 :
-
-- Token reset harus memiliki expiry dan ditolak setelah kedaluwarsa
-- User diarahkan untuk melakukan request ulang secara eksplisit
-
-### 3. Password Policy Lemah atau Tidak Ditegakkan
-Jika sistem menerima password yang lemah atau mengizinkan reuse password lama, maka reset password tidak meningkatkan keamanan akun.
+### 2. Token Security & Lifecycle Management Risk
 
 Dampak :
+- Token replay
+- Account takeover
+- Penyalahgunaan link reset yang bocor
+- Insiden keamanan tingkat tinggi
 
-- Akun tetap rentan meskipun user melakukan reset
-- False sense of security bagi user
-- Pelanggaran kebijakan keamanan internal
+Mitigasi yang diverifikasi melalui TC-04, TC-10 :
+- Token memiliki expiry
+- Token single-use
+- Token invalid setelah digunakan
+- User diarahkan request ulang jika expired
 
-Mitigasi yang diverifikasi melalui TC-05 dan TC-06 :
+### 3. Session Management & Post-Reset Security Risk
 
-- Sistem menolak password yang tidak memenuhi policy
-- Sistem menolak penggunaan ulang password sebelumnya
+Dampak:
+- Session lama tetap aktif
+- Reset tidak menghentikan compromise
+- Unauthorized persistent access
 
-### 4. User Confusion pada Kondisi Gagal
-Alur forgot password sering dilakukan dalam kondisi user frustrasi. Pesan error yang tidak jelas atau ambigu meningkatkan churn dan tiket ke customer support.
+Mitigasi yang diverifikasi melalui TC-12:
+
+- Semua session aktif diinvalidasi
+- User login ulang
+- Token autentikasi lama tidak berlaku
+
+### 4. Password Policy & Credential Integrity Risk
 
 Dampak :
+- Password lemah tetap digunakan
+- Reuse password lama
+- User terkunci
+- Inconsistent credential state
+- Audit finding
 
-- User gagal memulihkan akun
-- Peningkatan beban customer support
-- Pengalaman pengguna yang buruk pada momen kritis
+Mitigasi yang diverifikasi melalui TC-05, TC-06, TC-07, TC-09, TC-13 :
 
-Mitigasi yang diverifikasi melalui TC-03 dan TC-04 :
+- Policy enforced di backend
+- Reuse ditolak
+- Valid password tidak ditolak
+- Update dilakukan secara atomic
+- Login setelah reset berjalan normal
 
-- Validasi input ditampilkan secara jelas
-- Feedback eksplisit pada kondisi link kadaluarsa
+### 5. Input Handling & Identity Consistency Risk
 
+Dampak :
+- Duplikasi akun
+- Fragmentasi identitas
+- Gagal autentikasi
+
+Mitigasi yang diverifikasi melalui TC-08:
+- Email dinormalisasi
+- Validasi konsisten lintas modul
+- Data identitas tidak ambigu
+
+- 
 ## Risiko yang Sengaja Tidak Dicakup
 
 Beberapa risiko tidak diuji dalam scope portofolio ini karena keterbatasan akses dan lingkungan :
