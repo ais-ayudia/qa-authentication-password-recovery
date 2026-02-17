@@ -30,3 +30,9 @@ Asumsi pengujian:
 Batasan Masalah:
 - Tidak ada akses ke database atau log backend
 - Pengujian dilakukan sebagai black-box testing
+
+✔ Test Environment
+Browser: Firefox 147.0.3
+OS: Windows 10
+Testing type: Black-box
+Backend: Simulated (dummy system)
