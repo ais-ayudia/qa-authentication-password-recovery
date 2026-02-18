@@ -12,11 +12,12 @@ Dampak :
 - Information leakage tentang arsitektur sistem
 - Penurunan kepercayaan user terhadap keamanan platform
 
-Mitigasi yang diverifikasi melalui TC-01, TC-02, TC-03, TC-11 :
+Mitigasi yang diverifikasi melalui TC-01, TC-02, TC-03, TC-11, TC-16 :
 - Pesan selalu generik
 - Tidak mengonfirmasi keberadaan akun
 - Tidak mengekspos detail teknis
 - Logging detail hanya di server
+- Penerbitan token baru harus langsung membatalkan token-token sebelumnya secara bersamaan (atomik)
 
 ### 2. Token Security & Lifecycle Management Risk
 
@@ -26,7 +27,7 @@ Dampak :
 - Penyalahgunaan link reset yang bocor
 - Insiden keamanan tingkat tinggi
 
-Mitigasi yang diverifikasi melalui TC-04, TC-10 :
+Mitigasi yang diverifikasi melalui TC-04, TC-10, TC-14, TC-15 :
 - Token memiliki expiry
 - Token single-use
 - Token invalid setelah digunakan
