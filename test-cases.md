@@ -18,3 +18,6 @@ TS-01 – User dapat memulihkan akses akun melalui fitur Forgot Password secara 
 | TC-11 | TS-01 | Submit forgot password dengan format email valid secara struktur tapi domain tidak wajar | Sistem tetap memberikan pesan generik tanpa error teknis |
 | TC-12 | TS-01 | Setelah reset berhasil, cek apakah user tetap bisa mengakses halaman yang sebelumnya membutuhkan login tanpa re-auth | Sistem meminta login ulang jika session invalidated |
 | TC-13 | TS-01 | User berhasil reset password, lalu logout, lalu login ulang dengan password baru | Login berhasil dan tidak terjadi loop ke halaman reset |
+| TC-14 | TS-01 | User request reset dua kali berturut-turut | Token pertama invalid |
+| TC-15 | TS-01 | User klik reset link setelah password sudah berhasil diubah | Link tidak dapat digunakan ulang |
+| TC-16 | TS-01 | Response time untuk email valid dan tidak valid dibandingkan | Tidak ada perbedaan signifikan yang bisa digunakan untuk enumeration |
