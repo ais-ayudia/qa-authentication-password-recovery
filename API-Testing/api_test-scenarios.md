@@ -1,7 +1,7 @@
 # API Test Scenarios – password recovery
 
 ## Objective
-Memvalidasi perilaku backend pada mekanisme reset password dengan fokus pada:
+Memvalidasi respons dan kontrol akses pada endpoint password recovery melalui pendekatan black-box testing, dengan fokus pada:
 
 - Keamanan lifecycle token
 - Pencegahan account enumeration
