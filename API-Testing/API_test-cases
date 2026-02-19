@@ -1,0 +1,48 @@
+# API Test Case – Password Recovery
+
+| ID | Endpoint | Skenario | Expected Result | Tipe | Risiko |
+|----|----------|----------|----------------|------|--------|
+| API-01 | POST /auth/forgot-password | Email terdaftar | 200 OK, response generik | Security | High |
+| API-02 | POST /auth/forgot-password | Email tidak terdaftar | 200 OK, response identik | Security | High |
+| API-03 | POST /auth/reset-password | Token kadaluarsa | 400/401 invalid token | Security | High |
+| API-04 | POST /auth/reset-password | Token digunakan ulang | Ditolak | Security | High |
+| API-05 | POST /auth/reset-password | Password reuse | Ditolak | Security | High |
+| API-06 | POST /auth/reset-password | Password lemah | Validation error | Functional | Medium |
+| API-07 | POST /auth/reset-password | Password valid | 200 OK | Functional | High |
+| API-08 | POST /auth/forgot-password | Email case berbeda | Diperlakukan sama | Functional | Medium |
+| API-09 | POST /auth/reset-password | Double reset request | Token pertama invalid | Security | High |
+| API-10 | POST /auth/login | Login setelah reset | Berhasil | Functional | High |
+| API-11 | POST /auth/login | Gunakan session lama setelah reset | Ditolak | Security | High |
+| API-12 | POST /auth/forgot-password | Perbandingan response time valid vs invalid | Tidak ada perbedaan signifikan | Performance/Security | High |
+
+## Detail Execution – API-02 (Account Enumeration Prevention)
+
+Endpoint:
+POST /auth/forgot-password
+
+### Request 1 (Email Terdaftar) :
+
+{
+  "email": "registered@example.com"
+}
+
+Expected:
+- Status 200
+- Response body generik
+- Tidak ada field yang menunjukkan status akun
+
+### Request 2 (Email Tidak Terdaftar):
+
+{
+  "email": "unknown@example.com"
+}
+
+Expected :
+
+- Status 200
+- Struktur response identik
+- Tidak ada perbedaan pesan
+- Response time tidak berbeda signifikan
+
+Risiko yang Diverifikasi :
+Pencegahan account enumeration dan information disclosure.
