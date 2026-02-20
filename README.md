@@ -3,14 +3,17 @@ Repository ini berisi dokumentasi dan artefak pengujian untuk alur Forgot Passwo
 
 ✔ Scope of Testing 
 Pengujian difokuskan pada:
-- Alur end-to-end lupa password dari sudut pandang pengguna (UI & flow)
+- Alur end-to-end lupa password recovery
 - Validasi input dan pesan error yang ditampilkan
 - Konsistensi status akun setelah password berhasil diubah
+- Validasi token reset
+- Pengujian keamanan dasar pada boundary autentikasi
 
-Pengujian tidak mencakup:
-- Implementasi enkripsi password di backend
-- Konfigurasi SMTP / email deliverability tingkat server
-- Rate limiting dan brute force protection tingkat infrastruktur
+✔ Testing Approach
+- Black-box testing
+- Functional & negative testing
+- Security-aware scenario validation
+- Dokumentasi API dan UI flow
 
 ✔ Business Risks
 Kegagalan pada fitur Forgot Password berpotensi menyebabkan:
@@ -20,19 +23,10 @@ Kegagalan pada fitur Forgot Password berpotensi menyebabkan:
 - Risiko account takeover jika link reset tidak aman
 Oleh karena itu, skenario ini dikategorikan sebagai high-risk, high-impact flow.
 
-✔ Assumptions & Constraints
-Asumsi pengujian:
-- User sudah memiliki akun terdaftar
-- Email user dapat menerima pesan masuk
-- Sistem dalam kondisi normal (tidak maintenance)
-- Pengujian dilakukan pada browser modern (Chrome/Firefox)
-
-Batasan Masalah:
-- Tidak ada akses ke database atau log backend
-- Pengujian dilakukan sebagai black-box testing
-
-✔ Test Environment
-- Browser: Firefox 147.0.3
-- OS: Windows 10
-- Testing type: Black-box
-- Backend: Simulated (dummy system)
+✔ Repository Structure
+docs/
+    test_plan.md
+    risk_analysis.md
+    bug_report.md
+    /test-documentation
+    /api-testing
