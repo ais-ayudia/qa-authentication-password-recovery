@@ -46,11 +46,11 @@ newman run Password-Recovery.postman_collection.json -e Password-Recovery.enviro
 
 ✔ Repository Structure
 docs/
-    test_plan.md
-    risk_analysis.md
-    bug_report.md
-    /test-documentation
-    /api-testing
+    - test_plan.md
+    - risk_analysis.md
+    - bug_report.md
+    - /test-documentation
+    - /api-testing
 automation/postman
-    password_recovery.postman_collection.json
-    password_recovery.environment.json
+    - password_recovery.postman_collection.json
+    - password_recovery.environment.json
