@@ -23,6 +23,27 @@ Kegagalan pada fitur Forgot Password berpotensi menyebabkan:
 - Risiko account takeover jika link reset tidak aman
 Oleh karena itu, skenario ini dikategorikan sebagai high-risk, high-impact flow.
 
+✔ Automation
+Automation dilakukan menggunakan Postman Collection.
+
+Lokasi :
+/automation/postman
+
+Endpoint yang diautomasi :
+- POST /auth/forgot-password
+- POST /auth/reset-password
+- POST /auth/login
+
+Coverage automation mencakup :
+- Valid & invalid forgot password request
+- Token validation
+- Token reuse rejection
+- Login setelah reset berhasil
+
+Untuk menjalankan automation melalui CLI :
+
+newman run Password-Recovery.postman_collection.json -e Password-Recovery.environment.json
+
 ✔ Repository Structure
 docs/
     test_plan.md
@@ -30,3 +51,6 @@ docs/
     bug_report.md
     /test-documentation
     /api-testing
+automation/postman
+    password_recovery.postman_collection.json
+    password_recovery.environment.json
